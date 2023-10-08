@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        top {
+            display: flex;
+        }
+        div {
+            display: flex; /* 자식 요소를 가로로 정렬 */
+            justify-content: flex-end; /* 자식 요소를 오른쪽으로 정렬 */
+            align-items: center;
+            height: 40px; /* 높이 설정 */ 
+        }
+
+        img {
+            margin-right: 5px; 
+        }
+        a {
+            text-decoration: none; /* 밑줄 제거 */
+            color: #000; /* 텍스트 색상 설정 */
+            padding: 5px 10px; /* 패딩 설정 (위, 오른쪽, 아래, 왼쪽) */
+            margin-right: 10px; /* 마진 설정 (위, 오른쪽, 아래, 왼쪽) */
+            border: 1px solid #000; /* 테두리 설정 */
+            border-radius: 5px; /* 테두리 둥글게 만들기 */
+        }
+
+        /* 호버(마우스를 올렸을 때) 스타일 */
+        a:hover {
+            background-color: #000; /* 배경 색상 변경 */
+            color: #fff; /* 텍스트 색상 변경 */
+        }
+    </style>
+</head>
+<body>
+    <top>
+        <div>
+            <img src="book.png" width="40" alt="Book Icon">
+            <h1>My English Note</h1>
+        </div>
+        <div>
+            <a href>Home</a>
+            <a href>Nostyle</a>
+            <a href>Example</a>
+            <a href>About</a>
+        </div>
+    </top>
+    <middle>
+        <p>Hi</p>
+    </middle>
+    <bottom>
+        <p>bye</p>
+    </bottom>
+</body>
+</html>
