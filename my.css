@@ -1,0 +1,135 @@
+body {
+    background-color: #333;
+    color: #fff;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    background-color: #444;
+    padding: 20px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    height: 40px;
+}
+
+h1 {
+    flex-grow: 1;
+    color: #ff9800;
+}
+
+button {
+    background-color: #ff9800;
+    color: #333;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+button:hover {
+    background-color: #ffab40;
+}
+
+/* 미디어 쿼리 */
+@media (max-width: 767px) {
+    h1 {
+        color: #ff9800;
+    }
+
+    button.mobile-button {
+        background-color: #4caf50;
+        color: #fff;
+    }
+
+    button.mobile-button:hover {
+        background-color: #45a049;
+    }
+
+    a.mobile-link {
+        text-decoration: none;
+        padding: 5px 10px;
+        margin-right: 10px;
+        border: 1px solid #000;
+        border-radius: 5px;
+        color: #000;
+    }
+
+    a.mobile-link:hover {
+        background-color: #000;
+        color: #fff;
+    }
+}
+
+@media (min-width: 768px) {
+    h1 {
+        color: #ff9800;
+    }
+
+    button.desktop-button {
+        background-color: #ff9800;
+        color: #333;
+    }
+
+    button.desktop-button:hover {
+        background-color: #ffab40;
+    }
+
+    a.desktop-link {
+        text-decoration: none;
+        padding: 5px 10px;
+        margin-right: 10px;
+        border: 1px solid #000;
+        border-radius: 5px;
+        color: #000;
+    }
+
+    a.desktop-link:hover {
+        background-color: #000;
+        color: #fff;
+    }
+}
+
+/* 공통 스타일 */
+a {
+    text-decoration: none;
+    padding: 5px 10px;
+    margin-right: 10px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    color: #000;
+}
+
+a:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+/* 특정 요소 스타일링 */
+input[type="text"],
+input[type="number"],
+input[type="radio"] {
+    background-color: #555;
+    color: #fff;
+    border: none;
+    padding: 5px;
+    border-radius: 3px;
+}
+
+input[type="radio"] {
+    margin-right: 5px;
+}
+
+img {
+    margin-right: 5px;
+}
+
+h2:hover {
+    color: yellowgreen;
+    cursor: pointer;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}

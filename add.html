@@ -5,50 +5,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="my.css">
-    <style>
-        div {
-            display: flex; /* 자식 요소를 가로로 정렬 */ 
-            align-items: center;
-            height: 40px; /* 높이 설정 */ 
-        }
-
-        img {
-            margin-right: 5px; 
-        }
-        a {
-            text-decoration: none; /* 밑줄 제거 */
-            color: #000; /* 텍스트 색상 설정 */
-            padding: 5px 10px; /* 패딩 설정 (위, 오른쪽, 아래, 왼쪽) */
-            margin-right: 10px; /* 마진 설정 (위, 오른쪽, 아래, 왼쪽) */
-            border: 1px solid #000; /* 테두리 설정 */
-            border-radius: 5px; /* 테두리 둥글게 만들기 */
-        }
-
-        /* 호버(마우스를 올렸을 때) 스타일 */
-        a:hover {
-            background-color: #000; /* 배경 색상 변경 */
-            color: #fff; /* 텍스트 색상 변경 */
-        }
-        h1 {
-            flex-grow: 1;
-        }
-    </style>
 </head>
 <body>
     <div class="container">
         <img src="book.png" width="40" alt="Book Icon">
-        <h1>My Friends Note</h1>
+        <h1>친구 리스트 목록</h1>
         <p>
-            <a href="file:///c%3A/Users/yjy67/OneDrive/background/language/Project2_html/index.html">Home</a>
-            <a href="file:///c%3A/Users/yjy67/OneDrive/background/language/Project2_html/view.html">View</a>
-            <a href="file:///c%3A/Users/yjy67/OneDrive/background/language/Project2_html/add.html">Add</a>
-            <a href="file:///c%3A/Users/yjy67/OneDrive/background/language/Project2_html/edit.html">Edit</a>
+            <button class="hand-cursor" onclick="location.href='index.html'">홈으로 돌아가기</button>
         </p>
-        <form id="addForm">
-            <!-- 필요한 입력항목들을 여기에 추가하세요 -->
-            <button type="submit">추가</button>
-        </form>
     </div>
-    <script src="validation.js"></script>
+    <h1>게시물 추가</h1>
+    <form id="addForm" action="index.html">
+        <label for="name">이름:</label>
+        <input type="text" id="name" name="name"><br><br>
+
+        <label for="studentId">학번:</label>
+        <input type="text" id="studentId" name="studentId"><br><br>
+
+        <label for="department">학과:</label>
+        <input type="text" id="department" name="department"><br><br>
+
+        <label for="gender">성별:</label>
+        <input type="radio" id="male" name="gender" value="남성">
+        <label for="male">남성</label>
+        <input type="radio" id="female" name="gender" value="여성">
+        <label for="female">여성</label><br><br>
+
+        <label for="age">나이:</label>
+        <input type="number" id="age" name="age"><br><br>
+
+        <label for="hometown">고향:</label>
+        <input type="text" id="hometown" name="hometown"><br><br>
+
+        <button class="hand-cursor" onclick="return validateForm()" type="submit">추가</button>
+    </form>
+
+    <script> 
+    function validateForm() {
+        var name = document.getElementById("name").value;
+        var studentId = document.getElementById("studentId").value;
+        var department = document.getElementById("department").value;
+        var gender = document.querySelector('input[name="gender"]:checked');
+        var age = document.getElementById("age").value;
+        var hometown = document.getElementById("hometown").value;
+
+        if (name === "" || studentId === "" || department === "" || !gender || age === "" || hometown === "") {
+            alert("모든 필수 항목을 입력하세요.");
+            
+            return false;
+        }
+
+        if (isNaN(age) || age <= 0) {
+            alert("나이를 올바르게 입력하세요.");
+            return false;
+        }
+
+        call_confirm()
+
+        return true;
+    }
+    
+    function call_confirm(){
+	
+        if(confirm("제출하시겠습니까?")){
+            alert("정상적으로 제출되었습니다.");
+        }else{
+        alert("제출실패");
+        }
+
+    }
+    </script>
 </body>
 </html>

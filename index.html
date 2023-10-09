@@ -4,45 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        div {
-            display: flex; /* 자식 요소를 가로로 정렬 */ 
-            align-items: center;
-            height: 40px; /* 높이 설정 */ 
-        }
-
-        img {
-            margin-right: 5px; 
-        }
-        a {
-            text-decoration: none; /* 밑줄 제거 */
-            color: #000; /* 텍스트 색상 설정 */
-            padding: 5px 10px; /* 패딩 설정 (위, 오른쪽, 아래, 왼쪽) */
-            margin-right: 10px; /* 마진 설정 (위, 오른쪽, 아래, 왼쪽) */
-            border: 1px solid #000; /* 테두리 설정 */
-            border-radius: 5px; /* 테두리 둥글게 만들기 */
-        }
-
-        /* 호버(마우스를 올렸을 때) 스타일 */
-        a:hover {
-            background-color: #000; /* 배경 색상 변경 */
-            color: #fff; /* 텍스트 색상 변경 */
-        }
-        h1 {
-            flex-grow: 1;
-        }
-    </style>
+    <link rel="stylesheet" href="my.css">
 </head>
 <body>
     <div class="container">
         <img src="book.png" width="40" alt="Book Icon">
-        <h1>My Friends Note</h1>
+        <h1>친구 리스트 목록</h1>
         <p>
-            <a href="file:///c%3A/Users/yjy67/OneDrive/background/language/Project2_html/index.html">Home</a>
-            <a href="file:///c%3A/Users/yjy67/OneDrive/background/language/Project2_html/view.html">View</a>
-            <a href="file:///c%3A/Users/yjy67/OneDrive/background/language/Project2_html/add.html">Add</a>
-            <a href="file:///c%3A/Users/yjy67/OneDrive/background/language/Project2_html/edit.html">Edit</a>
+            <button class="hand-cursor" onclick="location.href='add.html'">게시물 추가</button>
         </p>
     </div>
+    <h1>친구 목록</h1>
+    <div class="post">
+        <h2 onclick="viewStudentInfo('한정민')">한정민</h2>
+        <p>20학번</p>
+        <p>컴퓨터공학</p>
+        <p>23살</p>
+        <p>남</p>
+        <p>전북 남원시</p>
+    </div>
+    
+    <div class="post">
+        <h2 onclick="viewStudentInfo('김경만')">김경만</h2>
+        <p>22학번</p>
+        <p>시각디자인, 국제어문</p>
+        <p>21살</p>
+        <p>남</p>
+        <p>충북 충주시</p>
+    </div>
+    
+    <div id="page">
+        <button id="prevPage" class="hand-cursor" onclick="prevPage()" onmouseover="buttonHover(this)" onmouseout="buttonUnhover(this)" onkeydown="key(event)">이전</button>
+        <button id="nextPage" class="hand-cursor" onclick="nextPage()" onmouseover="buttonHover(this)" onmouseout="buttonUnhover(this)" onkeydown="key(event)">다음</button>
+    </div>
+
+    <script>
+       function viewStudentInfo(studentName) {
+            location.href = `view.html?name=${studentName}`;
+        }
+
+        function buttonHover(button) {
+            button.style.backgroundColor = "#f0f0f0";
+        }
+
+        function buttonUnhover(button) {
+            button.style.backgroundColor = "";
+        }
+
+        function textHover(element) {
+            element.style.color = "blue";
+        }
+
+        function textUnhover(element) {
+            element.style.color = "";
+        }
+
+        function key(event) {
+            if (event.key === "Enter") {
+                event.currentTarget.click();
+            }
+        }
+    </script>
 </body>
 </html>

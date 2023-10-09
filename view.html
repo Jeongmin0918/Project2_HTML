@@ -5,48 +5,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="my.css">
-    <style>
-        div {
-            display: flex; /* 자식 요소를 가로로 정렬 */ 
-            align-items: center;
-            height: 40px; /* 높이 설정 */ 
-        }
-
-        img {
-            margin-right: 5px; 
-        }
-        a {
-            text-decoration: none; /* 밑줄 제거 */
-            color: #000; /* 텍스트 색상 설정 */
-            padding: 5px 10px; /* 패딩 설정 (위, 오른쪽, 아래, 왼쪽) */
-            margin-right: 10px; /* 마진 설정 (위, 오른쪽, 아래, 왼쪽) */
-            border: 1px solid #000; /* 테두리 설정 */
-            border-radius: 5px; /* 테두리 둥글게 만들기 */
-        }
-
-        /* 호버(마우스를 올렸을 때) 스타일 */
-        a:hover {
-            background-color: #000; /* 배경 색상 변경 */
-            color: #fff; /* 텍스트 색상 변경 */
-        }
-        h1 {
-            flex-grow: 1;
-        }
-    </style>
 </head>
 <body>
     <div class="container">
         <img src="book.png" width="40" alt="Book Icon">
-        <h1>My Friends Note</h1>
-        <p>
-            <a href="file:///c%3A/Users/yjy67/OneDrive/background/language/Project2_html/index.html">Home</a>
-            <a href="file:///c%3A/Users/yjy67/OneDrive/background/language/Project2_html/view.html">View</a>
-            <a href="file:///c%3A/Users/yjy67/OneDrive/background/language/Project2_html/add.html">Add</a>
-            <a href="file:///c%3A/Users/yjy67/OneDrive/background/language/Project2_html/edit.html">Edit</a>
+        <h1>친구 리스트 목록</h1>
+        <p> 
+            <button class="hand-cursor" onclick="location.href='index.html'">홈으로 돌아가기</button>
+            <button class="hand-cursor" onclick="return deleteAlert()">게시물 삭제</button>
         </p>
-        <!-- 게시물 내용을 동적으로 표시하는 코드를 추가하세요 -->
-        <button id="editButton">수정</button>
-        <button id="deleteButton">삭제</button>
+    
+        <script>
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            const studentName = urlParams.get('name');
+        
+            function displayStudentInfo() {
+                const studentInfo = {
+                    "한정민": {
+                        학번: "20학번",
+                        학과: "컴퓨터공학",
+                        나이: "23살",
+                        성별: "남",
+                        고향: "전북 남원시"
+                    },
+                    "김경만": {
+                        학번: "22학번",
+                        학과: "시각디자인, 국제어문",
+                        나이: "21살",
+                        성별: "남",
+                        고향: "충북 충주시"
+                    }
+                };
+            
+                const student = studentInfo[studentName];
+                if (student) {
+                    const infoContainer = document.createElement("div");
+                    infoContainer.innerHTML = `
+                        <h2>이름: ${studentName}</h2>
+                        <p>학번: ${student.학번}</p>
+                        <p>학과: ${student.학과}</p>
+                        <p>나이: ${student.나이}</p>
+                        <p>성별: ${student.성별}</p>
+                        <p>고향: ${student.고향}</p>
+                    `;
+                    document.body.appendChild(infoContainer);
+                } else {
+                    alert("학생 정보를 찾을 수 없습니다.");
+                }
+            }
+
+            function deleteAlert() {
+                if (confirm("정말로 삭제하시겠습니까?")) {
+                    alert("게시물이 삭제되었습니다."); 
+                    location.href = 'index.html';
+                }
+                else
+                    alert("삭제가 취소되었습니다.");
+            }
+            
+            displayStudentInfo();
+        </script>
+        
     </div>
+    
+    <button class="hand-cursor" onclick="location.href='edit.html'">게시물 수정</button>
+    
 </body>
 </html>
