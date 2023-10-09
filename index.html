@@ -5,12 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        top {
-            display: flex;
-        }
         div {
-            display: flex; /* 자식 요소를 가로로 정렬 */
-            justify-content: flex-end; /* 자식 요소를 오른쪽으로 정렬 */
+            display: flex; /* 자식 요소를 가로로 정렬 */ 
             align-items: center;
             height: 40px; /* 높이 설정 */ 
         }
@@ -32,26 +28,21 @@
             background-color: #000; /* 배경 색상 변경 */
             color: #fff; /* 텍스트 색상 변경 */
         }
+        h1 {
+            flex-grow: 1;
+        }
     </style>
 </head>
 <body>
-    <top>
-        <div>
-            <img src="book.png" width="40" alt="Book Icon">
-            <h1>My English Note</h1>
-        </div>
-        <div>
-            <a href>Home</a>
-            <a href>Nostyle</a>
-            <a href>Example</a>
-            <a href>About</a>
-        </div>
-    </top>
-    <middle>
-        <p>Hi</p>
-    </middle>
-    <bottom>
-        <p>bye</p>
-    </bottom>
+    <div class="container">
+        <img src="book.png" width="40" alt="Book Icon">
+        <h1>My Friends Note</h1>
+        <p>
+            <a href="file:///c%3A/Users/yjy67/OneDrive/background/language/Project2_html/index.html">Home</a>
+            <a href="file:///c%3A/Users/yjy67/OneDrive/background/language/Project2_html/view.html">View</a>
+            <a href="file:///c%3A/Users/yjy67/OneDrive/background/language/Project2_html/add.html">Add</a>
+            <a href="file:///c%3A/Users/yjy67/OneDrive/background/language/Project2_html/edit.html">Edit</a>
+        </p>
+    </div>
 </body>
 </html>
