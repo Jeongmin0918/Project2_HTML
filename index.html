@@ -9,12 +9,12 @@
 <body>
     <div class="container">
         <img src="book.png" width="40" alt="Book Icon">
-        <h1>친구 리스트 목록</h1>
+        <h1 class="title">친구 리스트 목록</h1>
         <p>
             <button class="hand-cursor" onclick="location.href='add.html'">게시물 추가</button>
         </p>
     </div>
-    <h1>친구 목록</h1>
+    <h1 class="subtitle">친구 목록</h1>
     <div class="post">
         <h2 onclick="viewStudentInfo('한정민')">한정민</h2>
         <p>20학번</p>
@@ -22,6 +22,9 @@
         <p>23살</p>
         <p>남</p>
         <p>전북 남원시</p>
+        <p>토레이</p>
+        <p>기독교</p>
+        <p>2001-09-18</p>
     </div>
     
     <div class="post">
@@ -31,6 +34,33 @@
         <p>21살</p>
         <p>남</p>
         <p>충북 충주시</p>
+        <p>카이퍼</p>
+        <p>기독교</p>
+        <p>2002-06-10</p>
+    </div>
+
+    <div class="post">
+        <h2 onclick="viewStudentInfo('최준서')">최준서</h2>
+        <p>20학번</p>
+        <p>전자공학</p>
+        <p>23살</p>
+        <p>남</p>
+        <p>대구광역시</p>
+        <p>토레이</p>
+        <p>기독교</p>
+        <p>2001-03-15</p>
+    </div>
+
+    <div class="post">
+        <h2 onclick="viewStudentInfo('문예원')">문예원</h2>
+        <p>23학번</p>
+        <p>글로벌리더쉽</p>
+        <p>20살</p>
+        <p>여</p>
+        <p>경북 포항시</p>
+        <p>토레이</p>
+        <p>기독교</p>
+        <p>2004-08-23</p>
     </div>
     
     <div id="page">
@@ -44,19 +74,11 @@
         }
 
         function buttonHover(button) {
-            button.style.backgroundColor = "#f0f0f0";
+            button.style.backgroundColor = "#ff9800";
         }
 
         function buttonUnhover(button) {
-            button.style.backgroundColor = "";
-        }
-
-        function textHover(element) {
-            element.style.color = "blue";
-        }
-
-        function textUnhover(element) {
-            element.style.color = "";
+            button.style.backgroundColor = "#f0f0f0";
         }
 
         function key(event) {

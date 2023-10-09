@@ -9,12 +9,12 @@
 <body>
     <div class="container">
         <img src="book.png" width="40" alt="Book Icon">
-        <h1>친구 리스트 목록</h1>
+        <h1 class="title">친구 리스트 목록</h1>
         <p>
             <button class="hand-cursor" onclick="location.href='index.html'">홈으로 돌아가기</button>
         </p>
     </div>
-    <h1>게시물 수정</h1>
+    <h1 class="subtitle">게시물 수정</h1>
     <form id="addForm" action="index.html">
         <label for="name">이름:</label>
         <input type="text" id="name" name="name"><br><br>
@@ -36,6 +36,30 @@
 
         <label for="hometown">고향:</label>
         <input type="text" id="hometown" name="hometown"><br><br>
+        
+        <label for="dormitory">기숙사</label>
+        <select name="dormitory">
+            <option>외부거주</option>
+            <option>토레이</option>
+            <option>카이퍼</option>
+            <option>장기려</option>
+            <option>카마이클</option>
+            <option>손양원</option>
+            <option>열송학사</option>
+            <option>창조</option>
+            <option>갈대상자</option>
+        </select>
+
+        <label for="christianity">기독교</label>
+        <div class="checkbox-container">
+            <label for="christianity">기독교</label>
+            <input type="checkbox">
+        </div>
+
+        <label for="birthday">생일</label>
+    <div class="birthdate-container">
+        <input type="date" id="birthday" name="birthday">
+    </div>
 
         <button class="hand-cursor" onclick="return validateForm()" type="submit">추가</button>
     </form>
@@ -74,27 +98,33 @@
         }
         function validateForm() {
             var name = document.getElementById("name").value;
-            var studentId = document.getElementById("studentId").value;
-            var department = document.getElementById("department").value;
-            var gender = document.querySelector('input[name="gender"]:checked');
-            var age = document.getElementById("age").value;
-            var hometown = document.getElementById("hometown").value;
+        var studentId = document.getElementById("studentId").value;
+        var department = document.getElementById("department").value;
+        var gender = document.querySelector('input[name="gender"]:checked');
+        var age = document.getElementById("age").value;
+        var hometown = document.getElementById("hometown").value;
+        var birthday = document.getElementById("birthday").value;
 
-            if (name === "" || studentId === "" || department === "" || !gender || age === "" || hometown === "") {
-                alert("모든 필수 항목을 입력하세요.");
-            
-                return false;
-            }
-
-            if (isNaN(age) || age <= 0) {
-                alert("나이를 올바르게 입력하세요.");
-                return false;
-            }
-
-            call_confirm()
-
-            return true;
+        if (name === "" || studentId === "" || department === "" || !gender || age === "" || hometown === "" || birthday === "") {
+            alert("모든 필수 항목을 입력하세요.");
+            return false;
         }
+
+        if (isNaN(age) || age <= 0) {
+            alert("나이를 올바르게 입력하세요.");
+            return false;
+        }
+
+        var datePattern = /^\d{4}-\d{2}-\d{2}$/;
+        if (!datePattern.test(birthday)) {
+            alert("올바른 생일 형식을 입력하세요 (YYYY-MM-DD).");
+            return false;
+        }
+        
+        call_confirm()
+
+        return true;
+    }
     
         function call_confirm(){
 	
